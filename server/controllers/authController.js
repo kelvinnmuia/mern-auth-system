@@ -152,7 +152,7 @@ export const sendVerifyOtp = async (req, res)=>{
 
         await user.save();
 
-        const mailOptions = {
+        const mailOption = {
             from: process.env.SENDER_EMAIL,
             to: user.email,
             subject: 'Account Verification OTP',
@@ -192,6 +192,12 @@ export const verifyEmail = async (req, res)=>{
         }
 
         user.isAccountVerified = true;
+        user.verifyOtp = '';
+        user.verifyOtpExpireAt = 0;
+
+        await user.save();
+
+        return res.json({ success: true, message: 'Email verified successfully' })
 
     } catch (error) {
         return res.json({ success: false, message: error.message });
