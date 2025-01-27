@@ -169,5 +169,17 @@ export const sendVerifyOtp = async (req, res)=>{
 }
 
 export const verifyEmail = async (req, res)=>{
-    
+    const {userId, otp} = req.body;
+
+    if (!userId || !otp) {
+        return res.json({ success: false, message: 'Missing Details' })
+    }
+
+    try {
+
+        const
+
+    } catch (error) {
+
+    }
 }
