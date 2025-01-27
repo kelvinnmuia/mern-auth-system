@@ -177,9 +177,9 @@ export const verifyEmail = async (req, res)=>{
 
     try {
 
-        const
+        const user = await userModel.findById(userId);
 
     } catch (error) {
-
+        return res.json({ success: false, message: error.message });
     }
 }
