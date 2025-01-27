@@ -3,6 +3,17 @@ import jwt from 'jsonwebtoken';
 import userModel from '../models/userModel.js';
 import transporter from '../config/nodemailer.js';
 
+/**
+ * Registers a new user.
+ *
+ * @param {Object} req - The request object.
+ * @param {Object} req.body - The body of the request.
+ * @param {string} req.body.name - The name of the user.
+ * @param {string} req.body.email - The email of the user.
+ * @param {string} req.body.password - The password of the user.
+ * @param {Object} res - The response object.
+ * @returns {Promise<void>} - A promise that resolves to void.
+ */
 export const register = async (req, res)=>{
     const {name, email, password} = req.body;
 
@@ -52,6 +63,16 @@ export const register = async (req, res)=>{
     }
 }
 
+/**
+ * Logs in an existing user.
+ *
+ * @param {Object} req - The request object.
+ * @param {Object} req.body - The body of the request.
+ * @param {string} req.body.email - The email of the user.
+ * @param {string} req.body.password - The password of the user.
+ * @param {Object} res - The response object.
+ * @returns {Promise<void>} - A promise that resolves to void.
+ */
 export const login = async (req, res)=>{
     const {email, password} = req.body;
 
@@ -90,6 +111,13 @@ export const login = async (req, res)=>{
     }
 }
 
+/**
+ * Logs out a user by clearing the token cookie.
+ *
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @returns {Promise<Object>} - A promise that resolves to an object with a success property (boolean) and a message property (string).
+ */
 export const logout = async (req, res)=>{
     try {
         res.clearCookie('token', {
@@ -105,6 +133,7 @@ export const logout = async (req, res)=>{
         return res.json({ success: false, message: error.message });
     }
 }
+
 
 export const sendVerifyOtp = async (req, res)=>{
     try {
@@ -130,9 +159,12 @@ export const sendVerifyOtp = async (req, res)=>{
             text: `Your OTP is ${otp}. Verify your account using this OTP.`
         }
 
-        
+        await transporter.sendMail(mailOption);
+
+        res.json({ success: true, message: 'Verification OTP sent on Email' });
 
     } catch (error) {
 
     }
 }
+
