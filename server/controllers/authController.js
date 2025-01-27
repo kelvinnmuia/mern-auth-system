@@ -130,6 +130,8 @@ export const sendVerifyOtp = async (req, res)=>{
             text: `Your OTP is ${otp}. Verify your account using this OTP.`
         }
 
+        
+
     } catch (error) {
 
     }
