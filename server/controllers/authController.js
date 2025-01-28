@@ -135,6 +135,14 @@ export const logout = async (req, res)=>{
 }
 
 
+/**
+ * Sends a verification OTP to the user's email.
+ *
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @returns {Promise<Object>} - A promise that resolves to an object with a success 
+ * property (boolean) and a message property (string).
+ */
 export const sendVerifyOtp = async (req, res)=>{
     try {
         const {userId} = req.body;
@@ -168,6 +176,17 @@ export const sendVerifyOtp = async (req, res)=>{
     }
 }
 
+/**
+ * Verifies a user's email / account.
+ *
+ * @param {Object} req - The request object.
+ * @param {Object} req.body - The body of the request.
+ * @param {string} req.body.userId - The ID of the user.
+ * @param {string} req.body.otp - The OTP sent to the user's email.
+ * @param {Object} res - The response object.
+ * @returns {Promise<Object>} - A promise that resolves to an object with a success 
+ * property (boolean) and a message property (string).
+ */
 export const verifyEmail = async (req, res)=>{
     const {userId, otp} = req.body;
 
@@ -199,6 +218,14 @@ export const verifyEmail = async (req, res)=>{
 
         return res.json({ success: true, message: 'Email verified successfully' })
 
+    } catch (error) {
+        return res.json({ success: false, message: error.message });
+    }
+}
+
+export const isAuthenticated = async (req, res)=>{
+    try  {
+        return res.json({ success: true });
     } catch (error) {
         return res.json({ success: false, message: error.message });
     }
