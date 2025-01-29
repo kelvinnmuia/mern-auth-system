@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import axios from "axios";
 
 export const AppContent = createContext();
@@ -35,6 +35,10 @@ export const AppContextProvider = (props) => {
         userData, setUserData,
         getUserData
     }
+
+    useEffect(()=>{
+        getAuthState()
+    },[])
 
     return (
         <AppContent.Provider value={value}>
