@@ -4,13 +4,15 @@ import { CiUser } from "react-icons/ci";
 import { MdOutlineEmail } from "react-icons/md";
 import { IoLockClosedOutline } from "react-icons/io5";
 import { useNavigate } from 'react-router-dom';
+import { AppContent } from '../context/AppContext';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 function Login() {
 
   const navigate = useNavigate()
 
-  const {backendUrl, setIsLoggedin} = useContext(AppContent)
+  const {backendUrl, setIsLoggedin, getUserData} = useContext(AppContent)
   const [state, setState] = useState('Sign Up')
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -23,20 +25,28 @@ function Login() {
       axios.defaults.withCredentials = true;
 
       if(state === 'Sign Up'){
-        const {data} =await axios.post(backendUrl + '/api/auth/register', 
-          {name, email, password})
+        const {data} =await axios.post(backendUrl + '/api/auth/register', {name, email, password})
 
           if(data.success){
             setIsLoggedin(true)
+            getUserData()
             navigate('/')
           }else {
-            alert(data.message)
+            toast.error(data.message)
           }
       }else{
+        const {data} =await axios.post(backendUrl + '/api/auth/login', {email, password})
 
+          if(data.success){
+            setIsLoggedin(true)
+            getUserData()
+            navigate('/')
+          }else {
+            toast.error(data.message)
+          }
       }
     } catch (error) {
-
+      toast.error(data.message)
     }
   }
   return (

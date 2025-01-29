@@ -10,8 +10,8 @@ import 'react-toastify/dist/ReactToastify.css';
 function App() {
   return (
     <div>
+      <ToastContainer />
       <Routes>
-        <ToastContainer />
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<Login />} />
         <Route path='/email-verify' element={<EmailVerify />} />
