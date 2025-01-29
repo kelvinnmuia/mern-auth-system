@@ -8,7 +8,7 @@ function Header() {
     text-gray-800">
       <img src={developer} alt="header image" className='w-36 h-36 mb-6' />
       <h1 className="flex items-center gap-2 text-xl sm:text-3xl
-      font-medium mb-2">Hey Developer 
+      font-medium mb-2">Hey Buddy 
       <MdWavingHand className="w-8 aspect-square" />
       </h1>
       <h2 className="text-3xl sm:text-5xl font-semibold mb-4">Welcome to our platform</h2>
