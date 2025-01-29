@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import auth from '../assets/auth.png'
 import { CiUser } from "react-icons/ci";
 import { MdOutlineEmail } from "react-icons/md";
+import { IoLockClosedOutline } from "react-icons/io5";
 
 
 function Login() {
@@ -28,6 +29,11 @@ function Login() {
            rounded-full bg-[#333A5C]">
             <MdOutlineEmail className="text-gray-300" />
           <input className="bg-transparent outline-none text-gray-300" type="email" placeholder="Email Address" required />
+          </div>
+          <div className="mb-4 flex items-center gap-3 w-full px-5 py-2.5
+           rounded-full bg-[#333A5C]">
+            <IoLockClosedOutline className="text-gray-300" />
+          <input className="bg-transparent outline-none text-gray-300" type="password" placeholder="Password" required />
           </div>
         </form>
       </div>
