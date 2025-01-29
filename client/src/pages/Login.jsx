@@ -3,9 +3,12 @@ import auth from '../assets/auth.png'
 import { CiUser } from "react-icons/ci";
 import { MdOutlineEmail } from "react-icons/md";
 import { IoLockClosedOutline } from "react-icons/io5";
+import { useNavigate } from 'react-router-dom';
 
 
 function Login() {
+
+  const navigate = useNavigate()
 
   const [state, setState] = useState('Sign Up')
   const [name, setName] = useState('')
@@ -15,7 +18,7 @@ function Login() {
   return (
     <div className='flex items-center justify-center min-h-screen
     px-6 sm:px-0 bg-gradient-to-br from-gray-200 to-cyan-100'>
-      <img src={auth} alt="" className="absolute left-5 sm:left-20
+      <img onClick={()=>navigate('/')} src={auth} alt="" className="absolute left-5 sm:left-20
       top-5 2-28 sm:w-32 cursor-pointer" />
       <div className="bg-slate-800 p-10 rounded-lg shadow-lg w-full sm:w-96 
       text-cyan-100 text-sm" >
@@ -52,7 +55,7 @@ function Login() {
               placeholder="Password" required
               value={password} />
           </div>
-          <p className="mb-4 text-cyan-400 cursor-pointer">Forgot password</p>
+          <p onClick={()=>navigate('/reset-password')} className="mb-4 text-cyan-400 cursor-pointer">Forgot password</p>
           <button className="w-full py-2.5 rounded-full bg-gradient-to-r 
           from-cyan-600 to-cyan-800 text-white font-medium">{state}</button>
         </form>
