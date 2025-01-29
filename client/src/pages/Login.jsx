@@ -8,9 +8,13 @@ import { IoLockClosedOutline } from "react-icons/io5";
 function Login() {
 
   const [state, setState] = useState('Sign Up')
+  const [name, setName]= useState('')
+  const [email, setEmail]= useState('')
+  const [password, setPassword]= useState('')
+  
   return (
     <div className='flex items-center justify-center min-h-screen
-    px-6 sm:px-0 bg-gradient-to-br from-gray-250 to-cyan-50'>
+    px-6 sm:px-0 bg-gradient-to-br from-gray-200 to-cyan-100'>
       <img src={auth} alt="" className="absolute left-5 sm:left-20
       top-5 2-28 sm:w-32 cursor-pointer" />
       <div className="bg-slate-800 p-10 rounded-lg shadow-lg w-full sm:w-96 
@@ -41,9 +45,9 @@ function Login() {
           from-cyan-600 to-cyan-800 text-white font-medium">{state}</button>
         </form>
         {state === "Sign Up" ? ( <p className="text-gray-400 text-center text-xs mt-4">Already have an account?
-          <span className="ml-1.5 text-cyan-400 cursor-pointer underline">Login here</span>
+          <span onClick={()=>setState('Login')} className="ml-1.5 text-cyan-400 cursor-pointer underline">Login here</span>
         </p>) : (<p className="text-gray-400 text-center text-xs mt-4">Don't have an account?
-          <span className="ml-1.5 text-cyan-400 cursor-pointer underline">Sign Up</span>
+          <span onClick={()=>setState('Sign Up')} className="ml-1.5 text-cyan-400 cursor-pointer underline">Sign Up</span>
         </p>)}
       </div>
     </div>
