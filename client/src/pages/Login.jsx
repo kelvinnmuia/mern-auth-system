@@ -36,6 +36,7 @@ function Login() {
           <input className="bg-transparent outline-none text-gray-300" type="password" placeholder="Password" required />
           </div>
           <p className="mb-4 text-cyan-400 cursor-pointer">Forgot password</p>
+          <button>{state}</button>
         </form>
       </div>
     </div>
