@@ -10,7 +10,7 @@ function Login() {
     px-6 sm:px-0 bg-gradient-to-br from-gray-250 to-cyan-50'>
       <img src={auth} alt="" className="absolute left-5 sm:left-20
       top-5 2-28 sm:w-32 cursor-pointer" />
-      <div className="bg-slate-800 p-10 rounded-lg shadow-lg w-full sm:w-96 text-center 
+      <div className="bg-slate-800 p-10 rounded-lg shadow-lg w-full sm:w-96 
       text-cyan-100 text-sm" >
         <h2>{state === 'Sign Up' ? 'Create Account' : 'Login'}</h2>
         <p>{state === 'Sign Up' ? 'Create your account' : 'Login to your account!'}</p>
