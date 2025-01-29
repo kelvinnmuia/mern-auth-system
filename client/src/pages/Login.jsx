@@ -35,6 +35,7 @@ function Login() {
             <IoLockClosedOutline className="text-gray-300" />
           <input className="bg-transparent outline-none text-gray-300" type="password" placeholder="Password" required />
           </div>
+          <p>Forgot password</p>
         </form>
       </div>
     </div>
