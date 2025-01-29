@@ -39,7 +39,9 @@ function Login() {
           <button className="w-full py-2.5 rounded-full bg-gradient-to-r 
           from-cyan-600 to-cyan-800 text-white font-medium">{state}</button>
         </form>
-        
+        <p className="text-gray-400 text-center text-xs mt-4">Already have an account?
+          <span>Login here</span>
+        </p>
       </div>
     </div>
   )
