@@ -11,7 +11,7 @@ function Login() {
   const [name, setName]= useState('')
   const [email, setEmail]= useState('')
   const [password, setPassword]= useState('')
-  
+
   return (
     <div className='flex items-center justify-center min-h-screen
     px-6 sm:px-0 bg-gradient-to-br from-gray-200 to-cyan-100'>
@@ -28,7 +28,7 @@ function Login() {
             <div className="mb-4 flex items-center gap-3 w-full px-5 py-2.5
            rounded-full bg-[#333A5C]">
             <CiUser className="text-gray-300" />
-          <input className="bg-transparent outline-none text-gray-300" type="text" placeholder="Full Name" required />
+          <input onChange={e => setName(e.target.value)}className="bg-transparent outline-none text-gray-300" type="text" placeholder="Full Name" required />
           </div>)}
           <div className="mb-4 flex items-center gap-3 w-full px-5 py-2.5
            rounded-full bg-[#333A5C]">
