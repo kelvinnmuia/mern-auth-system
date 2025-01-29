@@ -36,8 +36,10 @@ function Login() {
           <input className="bg-transparent outline-none text-gray-300" type="password" placeholder="Password" required />
           </div>
           <p className="mb-4 text-cyan-400 cursor-pointer">Forgot password</p>
-          <button className="w-full py-2.5 rounded-full bg-gradient-to-r from-cyan-600 to-cyan-800">{state}</button>
+          <button className="w-full py-2.5 rounded-full bg-gradient-to-r 
+          from-cyan-600 to-cyan-800 text-white font-medium">{state}</button>
         </form>
+        
       </div>
     </div>
   )
