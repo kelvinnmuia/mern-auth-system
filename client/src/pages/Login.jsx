@@ -20,11 +20,12 @@ function Login() {
         <p className="text-center text-sm mb-6">{state === 'Sign Up' ? 'Create your account' : 
         'Login to your account!'}</p>
         <form>
-          <div className="mb-4 flex items-center gap-3 w-full px-5 py-2.5
+          {state === "Sign Up" && (
+            <div className="mb-4 flex items-center gap-3 w-full px-5 py-2.5
            rounded-full bg-[#333A5C]">
             <CiUser className="text-gray-300" />
           <input className="bg-transparent outline-none text-gray-300" type="text" placeholder="Full Name" required />
-          </div>
+          </div>)}
           <div className="mb-4 flex items-center gap-3 w-full px-5 py-2.5
            rounded-full bg-[#333A5C]">
             <MdOutlineEmail className="text-gray-300" />
@@ -39,9 +40,11 @@ function Login() {
           <button className="w-full py-2.5 rounded-full bg-gradient-to-r 
           from-cyan-600 to-cyan-800 text-white font-medium">{state}</button>
         </form>
-        <p className="text-gray-400 text-center text-xs mt-4">Already have an account?
-          <span>Login here</span>
-        </p>
+        {state === "Sign Up" ? ( <p className="text-gray-400 text-center text-xs mt-4">Already have an account?
+          <span className="ml-1.5 text-cyan-400 cursor-pointer underline">Login here</span>
+        </p>) : (<p className="text-gray-400 text-center text-xs mt-4">Don't have an account?
+          <span className="ml-1.5 text-cyan-400 cursor-pointer underline">Sign Up</span>
+        </p>)}
       </div>
     </div>
   )
