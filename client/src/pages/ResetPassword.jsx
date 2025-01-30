@@ -13,8 +13,8 @@ function ResetPassword() {
       <img onClick={() => Navigate('/')} src={auth} alt="" className="absolute left-5 sm:left-20
                   top-5 sm:w-32 cursor-pointer" />
       <form className='bg-slate-800 p-8 rounded-lg shadow-lg w-96 text-sm'>
-      <h1 className="text-white text-2xl font-semibold text-center mb-4">Email Verify OTP</h1>
-      <p className="text-center mb-6 text-cyan-100">Enter the 6-digit code sent to your email address.</p>
+      <h1 className="text-white text-2xl font-semibold text-center mb-4">Reset Password</h1>
+      <p className="text-center mb-6 text-cyan-100">Enter your registered email address</p>
       </form>
     </div>
   )
