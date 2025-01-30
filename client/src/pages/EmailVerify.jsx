@@ -3,6 +3,15 @@ import auth from '../assets/auth.png'
 import { useNavigate } from 'react-router-dom';
 
 function EmailVerify() {
+
+  const inputRefs = React.useRef([])
+
+  const handleInput = (e, index)=>{
+    if(e.target.value.length > 0 && index < inputRefs.current.length - 1){
+      inputRefs.current[index + 1].focus();
+    }
+  }
+
   return (
     <div className='flex items-center justify-center min-h-screen 
     bg-gradient-to-br from-gray-200 to-cyan-100'>
@@ -14,7 +23,11 @@ function EmailVerify() {
               <div className="flex justify-between mb-8">
                 {Array(6).fill(0).map((_, index)=>(
                   <input type="text" maxLength='1' key={index} required
-                  className='w-12 h-12 bg-[#333A5C] text-white text-center text-xl rounded-md'/>
+                  className='w-12 h-12 bg-[#333A5C] text-white text-center text-xl 
+                  rounded-md'
+                  ref={e => inputRefs.current[index] = e}
+                  onInput={(e) => handleInput(e, index)}
+                  />
                 ))}
               </div>
               <button className='w-full py-3 bg-gradient-to-r from-cyan-600
