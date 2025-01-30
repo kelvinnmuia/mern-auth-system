@@ -28,6 +28,18 @@ function EmailVerify() {
     })
   }
 
+  const onSubmitHandler = async (e)=>{
+    try {
+      e.preventDefault();
+      const otpArray = inputRefs.current.map(e => e.value)
+      const otp = otpArray.join('')
+
+      const {data} = await axios.post()
+    } catch (error) {
+
+    }
+  }
+
   return (
     <div className='flex items-center justify-center min-h-screen 
     bg-gradient-to-br from-gray-200 to-cyan-100'>
