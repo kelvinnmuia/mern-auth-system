@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import auth from '../assets/auth.png'
 import { useNavigate } from 'react-router-dom';
 import { AppContent } from '../context/AppContext';
@@ -57,6 +57,10 @@ function EmailVerify() {
       toast.error(error.message)
     }
   }
+
+  useEffect(()=>{
+    isLoggedin && userData && userData.isAccountVerified && navigate('/')
+  }, [isLoggedin, userData])
 
   return (
     <div className='flex items-center justify-center min-h-screen 
