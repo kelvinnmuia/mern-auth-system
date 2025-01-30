@@ -12,6 +12,11 @@ function EmailVerify() {
     }
   }
 
+  const handleKeyDown = (e, index)=>{
+    if(e.key === 'Backspace' && e.target.value === '' && index > 0){
+      inputRefs.current[index - 1].focus();
+    }
+  }
   return (
     <div className='flex items-center justify-center min-h-screen 
     bg-gradient-to-br from-gray-200 to-cyan-100'>
@@ -27,6 +32,7 @@ function EmailVerify() {
                   rounded-md'
                   ref={e => inputRefs.current[index] = e}
                   onInput={(e) => handleInput(e, index)}
+                  onKeyDown={(e)=> handleKeyDown(e, index)}
                   />
                 ))}
               </div>
