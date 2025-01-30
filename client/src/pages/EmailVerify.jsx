@@ -17,7 +17,8 @@ function EmailVerify() {
                   className='w-12 h-12 bg-[#333A5C] text-white text-center text-xl rounded-md'/>
                 ))}
               </div>
-              <button>Verify email</button>
+              <button className='w-full py-3 bg-gradient-to-r from-cyan-600
+              to-cyan-800 text-white rounded-full'>Verify email</button>
             </form>
     </div>
   )
