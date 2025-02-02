@@ -24,7 +24,8 @@ function ResetPassword() {
         className='bg-transparent outline-none text-gray-300'
         value={email} onChange={e => setEmail(e.target.value)} required />
       </div>
-      <button>Submit</button>
+      <button className="w-full py-2.5 bg-gradient-to-r from-cyan-600
+      to-cyan-800 text-white rounded-full mt-3">Submit</button>
       </form>
     </div>
   )
