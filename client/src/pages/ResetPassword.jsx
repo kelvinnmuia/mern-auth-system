@@ -2,13 +2,16 @@ import React, { useState } from 'react'
 import auth from '../assets/auth.png'
 import { useNavigate } from 'react-router-dom'
 import { MdOutlineEmail } from 'react-icons/md'
+import { IoLockClosedOutline } from 'react-icons/io5'
 
 
 function ResetPassword() {
 
   const Navigate = useNavigate()
-
   const [email, setEmail] = useState('')
+  const [newPassword, setNewPassword] = useState('')
+  const [isEmailSent, setIsEmailSent] = useState('')
+  const [otp, setOtp] = useState(0)
 
   const inputRefs = React.useRef([])
 
@@ -96,10 +99,10 @@ function ResetPassword() {
         <h1 className="text-white text-2xl font-semibold text-center mb-4">New Password</h1>
         <p className="text-center mb-6 text-cyan-100">Enter the new password below</p>
         <div className="mb-4 flex items-center gap-3 w-full px-5 py-2.5 rounded-full bg-[#333A5C]">
-          <MdOutlineEmail className="text-gray-300" />
-          <input type='email' placeholder='Email Address'
+          <IoLockClosedOutline className="text-gray-300" />
+          <input type='password' placeholder='New Password'
             className='bg-transparent outline-none text-gray-300'
-            value={email} onChange={e => setEmail(e.target.value)} required />
+            value={newPassword} onChange={e => setNewPassword(e.target.value)} required />
         </div>
         <button className="w-full py-2.5 bg-gradient-to-r from-cyan-600
       to-cyan-800 text-white rounded-full mt-3">Submit</button>
