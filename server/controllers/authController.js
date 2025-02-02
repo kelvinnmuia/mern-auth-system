@@ -2,7 +2,7 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import userModel from '../models/userModel.js';
 import transporter from '../config/nodemailer.js';
-import { PASSWORD_RESET_TEMPLATE } from '../config/emailTemplates.js';
+import { PASSWORD_RESET_TEMPLATE, EMAIL_VERIFY_TEMPLATE } from '../config/emailTemplates.js';
 
 /**
  * Registers a new user.
@@ -165,7 +165,9 @@ export const sendVerifyOtp = async (req, res)=>{
             from: process.env.SENDER_EMAIL,
             to: user.email,
             subject: 'Account Verification OTP',
-            text: `Your OTP is ${otp}. Verify your account using this OTP.`
+            /*text: `Your OTP is ${otp}. Verify your account using this OTP.`*/
+            html: EMAIL_VERIFY_TEMPLATE.replace('{{otp}}', otp).replace('{{email}}', 
+                user.email)
         }
 
         await transporter.sendMail(mailOption);
