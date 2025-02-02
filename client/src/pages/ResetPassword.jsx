@@ -15,6 +15,10 @@ function ResetPassword() {
       <form className='bg-slate-800 p-8 rounded-lg shadow-lg w-96 text-sm'>
       <h1 className="text-white text-2xl font-semibold text-center mb-4">Reset Password</h1>
       <p className="text-center mb-6 text-cyan-100">Enter your registered email address</p>
+      <div>
+        <img src='' alt='' />
+        <input type='email' />
+      </div>
       </form>
     </div>
   )
