@@ -18,7 +18,7 @@ function ResetPassword() {
       <p className="text-center mb-6 text-cyan-100">Enter your registered email address</p>
       <div className="mb-4 flex items-center gap-3 w-full px-5 py-2.5 rounded-full bg-[#333A5C]">
          <MdOutlineEmail className="text-gray-300" />
-        <input type='email' />
+        <input type='email' placeholder='Email Address' className='bg-transparent outline-none text-gray-300'/>
       </div>
       </form>
     </div>
