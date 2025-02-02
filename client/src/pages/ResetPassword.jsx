@@ -1,17 +1,23 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import auth from '../assets/auth.png'
 import { useNavigate } from 'react-router-dom'
 import { MdOutlineEmail } from 'react-icons/md'
 import { IoLockClosedOutline } from 'react-icons/io5'
-
+import { AppContent } from '../context/AppContext'
+import axios from 'axios'
+import { toast } from 'react-toastify'
 
 function ResetPassword() {
+
+  const {backendUrl} = useContext(AppContent)
+  axios.defaults.withCredentials = true
 
   const Navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [newPassword, setNewPassword] = useState('')
   const [isEmailSent, setIsEmailSent] = useState('')
   const [otp, setOtp] = useState(0)
+  const [isOtpSubmited, setIsOtpSubmited] = useState(false)
 
   const inputRefs = React.useRef([])
 
@@ -37,34 +43,27 @@ function ResetPassword() {
     })
   }
 
-  const onSubmitHandler = async (e) => {
-    try {
-      e.preventDefault();
-      const otpArray = inputRefs.current.map(e => e.value)
-      const otp = otpArray.join('')
+  const onSubmitEmail = async (e)=>{
+    e.preventDefault();
 
-      const { data } = await axios.post(backendUrl + '/api/auth/verify-account',
-        { otp }
-      )
-
-      if (data.success) {
-        toast.success(data.message)
-        getUserData()
-        navigate('/')
-      } else {
-        toast.error(data.message)
-      }
-    } catch (error) {
+    try{
+      const {data} = await axios.post(backendUrl + '/api/auth/send-reset-otp', 
+        {email})
+        data.success ? toast.success(data.message) : toast.error(data.message)
+        data.success && setIsEmailSent(true)
+    } catch(error) {
       toast.error(error.message)
     }
-  }
 
+  }
 
   return (
     <div className='flex items-center justify-center min-h-screen 
     bg-gradient-to-br from-gray-200 to-cyan-100'>
       <img onClick={() => Navigate('/')} src={auth} alt="" className="absolute left-5 sm:left-20
                   top-5 sm:w-32 cursor-pointer" />
+      
+      {!isEmailSent && 
       <form className='bg-slate-800 p-8 rounded-lg shadow-lg w-96 text-sm'>
         <h1 className="text-white text-2xl font-semibold text-center mb-4">Reset Password</h1>
         <p className="text-center mb-6 text-cyan-100">Enter your registered email address</p>
@@ -77,7 +76,9 @@ function ResetPassword() {
         <button className="w-full py-2.5 bg-gradient-to-r from-cyan-600
       to-cyan-800 text-white rounded-full mt-3">Submit</button>
       </form>
+}
 
+{!isOtpSubmited && isEmailSent &&
       <form className='bg-slate-800 p-8 rounded-lg shadow-lg w-96 text-sm'>
         <h1 className="text-white text-2xl font-semibold text-center mb-4">Reset password OTP</h1>
         <p className="text-center mb-6 text-cyan-100">Enter the 6-digit code sent to your email address.</p>
@@ -95,6 +96,9 @@ function ResetPassword() {
         <button className='w-full py-2.5 bg-gradient-to-r from-cyan-600
               to-cyan-800 text-white rounded-full'>Submit</button>
       </form>
+}
+
+{isOtpSubmited && isEmailSent &&
       <form className='bg-slate-800 p-8 rounded-lg shadow-lg w-96 text-sm'>
         <h1 className="text-white text-2xl font-semibold text-center mb-4">New Password</h1>
         <p className="text-center mb-6 text-cyan-100">Enter the new password below</p>
@@ -107,6 +111,7 @@ function ResetPassword() {
         <button className="w-full py-2.5 bg-gradient-to-r from-cyan-600
       to-cyan-800 text-white rounded-full mt-3">Submit</button>
       </form>
+}
     </div>
   )
 }
