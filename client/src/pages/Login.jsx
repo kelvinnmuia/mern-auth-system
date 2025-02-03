@@ -8,6 +8,15 @@ import { AppContent } from '../context/AppContext';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
+  /**
+   * This component renders a login form with input fields for email and password.
+   * The form can be toggled between a sign up form and a login form.
+   * The form makes a request to the server to either create a new user or to login
+   * an existing user. If the request is successful, the user is logged in and redirected
+   * to the homepage.
+   * 
+   * @returns {JSX.Element}
+   */
 function Login() {
 
   const navigate = useNavigate()
@@ -18,6 +27,14 @@ function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
+  /**
+   * Handles the submission of the form.
+   * If the form is a sign up form, makes a POST request to the server to create a new user.
+   * If the form is a login form, makes a POST request to the server to login an existing user.
+   * If the request is successful, logs the user in and redirects to the homepage.
+   * If the request is not successful, shows an error message.
+   * @param {React.FormEvent<HTMLFormElement>} e - Form submission event
+   */
   const onSubmitHandler = async (e) => {
     try {
       e.preventDefault();
