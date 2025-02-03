@@ -5,6 +5,12 @@ import { AppContent } from '../context/AppContext';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
+/**
+ * EmailVerify component handles the verification of a user's email by entering a 6-digit code 
+ * that is sent to the user's email address.
+ * 
+ * @returns {JSX.Element}
+ */
 function EmailVerify() {
 
   axios.defaults.withCredentials = true;
@@ -14,18 +20,37 @@ function EmailVerify() {
 
   const inputRefs = React.useRef([])
 
+  /**
+   * Handle input event for email verification input fields.
+   * If the input field has a value and is not the last field, focus the next input field.
+   * @param {React.ChangeEvent<HTMLInputElement>} e - Input event
+   * @param {number} index - Index of the input field
+   */
   const handleInput = (e, index)=>{
     if(e.target.value.length > 0 && index < inputRefs.current.length - 1){
       inputRefs.current[index + 1].focus();
     }
   }
 
+  /**
+   * Handles the key down event for the email verification input fields.
+   * If the key pressed is the backspace key and the input field is empty and is not the first field,
+   * focus the previous input field.
+   * @param {React.KeyboardEvent<HTMLInputElement>} e - Key down event
+   * @param {number} index - Index of the input field
+   */
   const handleKeyDown = (e, index)=>{
     if(e.key === 'Backspace' && e.target.value === '' && index > 0){
       inputRefs.current[index - 1].focus();
     }
   }
 
+  /**
+   * Handle paste event for the email verification input fields.
+   * Splits the pasted string into an array of characters and assigns each character
+   * to the corresponding input field.
+   * @param {React.ClipboardEvent<HTMLInputElement>} e - Paste event
+   */
   const handlePaste = (e)=>{
     const paste = e.clipboardData.getData('text')
     const pasteArray = paste.split('');
@@ -36,6 +61,17 @@ function EmailVerify() {
     })
   }
 
+  /**
+   * Handles the submission of the email verification form.
+   * 
+   * 1. Prevents the default form submission behavior.
+   * 2. Joins the values of the input fields into a single string.
+   * 3. Makes a POST request to the server to verify the account.
+   * 4. If the response is successful, shows a success message and redirects to the homepage.
+   * 5. If the response is not successful, shows an error message.
+   * 
+   * @param {React.FormEvent<HTMLFormElement>} e - Form submission event
+   */
   const onSubmitHandler = async (e)=>{
     try {
       e.preventDefault();
