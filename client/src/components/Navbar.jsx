@@ -6,11 +6,28 @@ import { AppContent } from '../context/AppContext'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 
+  /**
+   * Navbar component renders the navigation bar for the app.
+   * It contains the app logo on the left and the user's initials or a login button on the right.
+   * If the user is logged in, it renders the user's initials which is a drop down menu with options to verify email and logout.
+   * If the user is not logged in, it renders a login button.
+   * The component uses the AppContent context to get the user data and the backend url.
+   * It uses the useNavigate hook to navigate to the login page or the email verification page.
+   * It uses the toastify library to show success and error messages.
+   * @returns {JSX.Element}
+   */
 function Navbar() {
 
   const navigate = useNavigate()
   const {userData, backendUrl, setUserData, setIsLoggedin} = useContext(AppContent)
 
+  /**
+   * Sends a verification OTP to the user's email.
+   * Makes a POST request to the server to send a verification OTP.
+   * If the response is successful, navigates to the email verification page and shows a success message.
+   * If the response is not successful, shows an error message.
+   * If there is an error in making the request, shows an error message.
+   */
   const sendVerificationOtp = async ()=>{
     try {
       axios.defaults.withCredentials = true;
@@ -27,6 +44,12 @@ function Navbar() {
     }
   }
 
+  /**
+   * Logs out the user.
+   * Makes a POST request to the server to log out the user.
+   * If the request is successful, logs the user out and redirects to the homepage.
+   * If the request is not successful, shows an error message.
+   */
   const logout = async ()=>{
     try {
       axios.defaults.withCredentials = true

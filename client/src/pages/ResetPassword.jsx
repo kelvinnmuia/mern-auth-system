@@ -7,6 +7,21 @@ import { AppContent } from '../context/AppContext'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 
+/*************  ✨ Codeium Command ⭐  *************/
+/**
+ * ResetPassword component handles the password reset process for a user.
+ * 
+ * 1. Allows the user to request a password reset by entering their registered email address.
+ * 2. Sends a 6-digit OTP to the user's email and allows the user to submit the OTP for verification.
+ * 3. Once the OTP is verified, allows the user to set a new password.
+ * 4. Provides navigation back to the login page upon successful password reset.
+ * 
+ * Utilizes various handlers for input events, form submissions, and OTP management.
+ * 
+ * @returns {JSX.Element}
+ */
+
+/******  e35c0304-e12a-44fe-94b8-3af4795aa561  *******/
 function ResetPassword() {
 
   const {backendUrl} = useContext(AppContent)
@@ -21,18 +36,37 @@ function ResetPassword() {
 
   const inputRefs = React.useRef([])
 
+  /**
+   * Handle input event for password reset OTP input fields.
+   * If the input field has a value and is not the last field, focus the next input field.
+   * @param {React.ChangeEvent<HTMLInputElement>} e - Input event
+   * @param {number} index - Index of the input field
+   */
   const handleInput = (e, index) => {
     if (e.target.value.length > 0 && index < inputRefs.current.length - 1) {
       inputRefs.current[index + 1].focus();
     }
   }
 
+  /**
+   * Handles the key down event for the password reset OTP input fields.
+   * If the key pressed is the backspace key and the input field is empty and is not the first field,
+   * focus the previous input field.
+   * @param {React.KeyboardEvent<HTMLInputElement>} e - Key down event
+   * @param {number} index - Index of the input field
+   */
   const handleKeyDown = (e, index) => {
     if (e.key === 'Backspace' && e.target.value === '' && index > 0) {
       inputRefs.current[index - 1].focus();
     }
   }
 
+  /**
+   * Handle paste event for the password reset OTP input fields.
+   * Splits the pasted string into an array of characters and assigns each character
+   * to the corresponding input field.
+   * @param {React.ClipboardEvent<HTMLInputElement>} e - Paste event
+   */
   const handlePaste = (e) => {
     const paste = e.clipboardData.getData('text')
     const pasteArray = paste.split('');
@@ -42,6 +76,17 @@ function ResetPassword() {
       }
     })
   }
+
+/**
+ * Handles the submission of the email form for password reset.
+ * 
+ * 1. Prevents the default form submission behavior.
+ * 2. Sends a POST request to the server to send a reset OTP to the provided email.
+ * 3. If the response is successful, shows a success message and updates the email sent state.
+ * 4. If the response is not successful, shows an error message.
+ * 
+ * @param {React.FormEvent<HTMLFormElement>} e - Form submission event
+ */
 
   const onSubmitEmail = async (e)=>{
     e.preventDefault();
@@ -57,6 +102,15 @@ function ResetPassword() {
 
   }
 
+  /**
+   * Handles the submission of the password reset OTP form.
+   * 
+   * 1. Prevents the default form submission behavior.
+   * 2. Joins the values of the input fields into a single string.
+   * 3. Updates the state of the OTP and otp submitted.
+   * 
+   * @param {React.FormEvent<HTMLFormElement>} e - Form submission event
+   */
   const onSubmitOtp = async (e)=>{
     e.preventDefault();
 
@@ -65,6 +119,16 @@ function ResetPassword() {
     setIsOtpSubmited(true)
   }
 
+  /**
+   * Handles the submission of the new password form.
+   * 
+   * 1. Prevents the default form submission behavior.
+   * 2. Makes a POST request to the server to reset the user's password.
+   * 3. If the response is successful, shows a success message and redirects to the login page.
+   * 4. If the response is not successful, shows an error message.
+   * 
+   * @param {React.FormEvent<HTMLFormElement>} e - Form submission event
+   */
   const onSubmitNewPassword = async (e) => {
     e.preventDefault();
     try {

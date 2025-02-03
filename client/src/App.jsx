@@ -7,6 +7,17 @@ import ResetPassword from './pages/ResetPassword'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+/**
+ * The main App component that renders the entire application.
+ * 
+ * This component uses React Router to route the user to the correct page based on the URL.
+ * 
+ * The ToastContainer is used to display any toast notifications.
+ * 
+ * The Routes component from React Router is used to define the routes for the application.
+ * 
+ * The Home, Login, EmailVerify, and ResetPassword components are used as the elements for each route.
+ */
 function App() {
   return (
     <div>

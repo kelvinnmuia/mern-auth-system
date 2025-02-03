@@ -3,6 +3,15 @@ import developer from '../assets/developer.png'
 import { MdWavingHand } from "react-icons/md";
 import { AppContent } from '../context/AppContext';
 
+/**
+ * The Header component renders a header with a welcome message, a product tour, and a get started button.
+ *
+ * It uses the `AppContent` context to access the user data, and displays the user's name if available.
+ *
+ * The component is styled to be centered and have a max width of 36rem.
+ *
+ * The component is exported as the default export.
+ */
 function Header() {
 
   const {userData} = useContext(AppContent)
