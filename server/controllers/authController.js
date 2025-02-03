@@ -226,6 +226,17 @@ export const verifyEmail = async (req, res)=>{
     }
 }
 
+/**
+ * Checks if a user is authenticated using a JWT token in the 'token' cookie.
+ * If the user is authenticated, sends a JSON response with a success property set to true.
+ * If the user is not authenticated, sends a JSON response with a success property set to false
+ * and a message property set to an error message.
+ *
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @returns {Promise<Object>} - A promise that resolves to an object with a success property
+ * (boolean) and a message property (string).
+ */
 export const isAuthenticated = async (req, res)=>{
     try  {
         return res.json({ success: true });
@@ -234,6 +245,16 @@ export const isAuthenticated = async (req, res)=>{
     }
 }
 
+/**
+ * Sends a password reset OTP to the user's email.
+ *
+ * @param {Object} req - The request object.
+ * @param {Object} req.body - The body of the request.
+ * @param {string} req.body.email - The email of the user.
+ * @param {Object} res - The response object.
+ * @returns {Promise<Object>} - A promise that resolves to an object with a success property
+ * (boolean) and a message property (string).
+ */
 export const sendResetOtp = async (req, res)=>{
     const {email} = req.body;
 
@@ -272,6 +293,19 @@ export const sendResetOtp = async (req, res)=>{
         return res.json({ success: false, message: error.message });
     }
 }
+
+/**
+ * Resets a user's password using the provided email, OTP, and new password.
+ *
+ * @param {Object} req - The request object.
+ * @param {Object} req.body - The body of the request.
+ * @param {string} req.body.email - The email of the user.
+ * @param {string} req.body.otp - The OTP sent to the user's email for password reset.
+ * @param {string} req.body.newPassword - The new password to be set for the user.
+ * @param {Object} res - The response object.
+ * @returns {Promise<Object>} - A promise that resolves to an object with a success 
+ * property (boolean) and a message property (string).
+ */
 
 export const resetPassword = async (req, res)=>{
     const {email, otp, newPassword} = req.body;

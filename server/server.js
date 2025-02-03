@@ -15,6 +15,13 @@ const app = express();
 const port = process.env.PORT || 4000
 connectDB();
 
+/**
+ * An array of allowed origins for CORS (Cross-Origin Resource Sharing).
+ * These origins are permitted to access resources on the server.
+ * 
+ * @type {string[]}
+ * @constant
+ */
 const allowedOrigins = ['http://localhost:5173']
 
 app.use(express.json());
