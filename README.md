@@ -1,4 +1,4 @@
-# MERN Stack Authentication System Overview
+# MERN Stack Authentication System
 
 This is a full-stack authentication system built with the MERN (MongoDB, Express, React, Node.js) stack. It features user authentication, including sign-up, sign-in, password reset, and logout functionality. The system consists of a frontend (client-side) and a backend (server-side), handling authentication using API endpoints and connecting to a MongoDB database.
 
