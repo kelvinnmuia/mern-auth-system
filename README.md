@@ -76,7 +76,7 @@ The server is a Node.js application that provides an API for the client to inter
 
 ### Homepage
 
-![Homepage](/screenshots/login.png)
+![Homepage](./screenshots/login.png)
 
 ### Login
 
