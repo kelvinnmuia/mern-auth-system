@@ -104,4 +104,4 @@ The server is a Node.js application that provides an API for the client to inter
 
 ### Password reset form
 
-![Password reset form](./screenshots/Password-reset-form.png)
+![Password reset form](./screenshots/password-reset-form.png)
