@@ -90,6 +90,10 @@ The server is a Node.js application that provides an API for the client to inter
 
 ![Email verification message](./screenshots/Email-verification-message.png)
 
+### Filled email verification form
+
+![Filled email verification form](./screenshots/Filled-email-verification-form.png)
+
 ### Success email verification message
 
 ![Success email verification message](./screenshots/Successfull-email-verification-notification.png)
