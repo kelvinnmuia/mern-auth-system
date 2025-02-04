@@ -86,6 +86,8 @@ The server is a Node.js application that provides an API for the client to inter
 
 ![Email verification form](./screenshots/Email-verification-form.png)
 
-### Protected Route
+### Email verification message
+
+![Email verification message](./screenshots/Email-verification-message.png)
 
 ![Protected Route](/screenshots/protected-route.png)
