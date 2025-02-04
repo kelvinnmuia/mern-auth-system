@@ -74,54 +74,54 @@ The server is a Node.js application that provides an API for the client to inter
 
 ## Screenshots
 
-### Homepage
+### 1. Homepage
 
 ![Homepage](./screenshots/Homepage.png)
 
-### Signup form
+### 2. Signup form
 
 ![Signup](./screenshots/signup-form.png)
 
-### Email verification form
+### 3. Email verification form
 
 ![Email verification form](./screenshots/Email-verification-form.png)
 
-### Email verification message
+### 4. Email verification message
 
 ![Email verification message](./screenshots/Email-verification-message.png)
 
-### Filled email verification form
+### 5. Filled email verification form
 
 ![Filled email verification form](./screenshots/Filled-email-verification-form.png)
 
-### Success email verification message
+### 6. Success email verification message
 
 ![Success email verification message](./screenshots/Successfull-email-verification-notification.png)
 
-### Signin form
+### 7. Signin form
 
 ![Signin form](./screenshots/Signin-form.png)
 
-### Password reset form
+### 8. Password reset form
 
 ![Password reset form](./screenshots/password-reset-form.png)
 
-### Password reset popup notification
+### 9. Password reset popup notification
 
 ![Password reset popup notification](./screenshots/password-reset-pop-notification.png)
 
-### Password reset email message
+### 10. Password reset email message
 
 ![Password reset email message](./screenshots/password-reset-email-message.png)
 
-### Filled password reset form
+### 11. Filled password reset form
 
 ![Filled password reset form](./screenshots/Filled-password-reset-form.png)
 
-### New password form
+### 12. New password form
 
 ![New password form](./screenshots/newpassword-form.png)
 
-### Successfull password reset message
+### 13. Successfull password reset message
 
 ![Successfull password reset message](./screenshots/Successfull-password-reset-message.png)
