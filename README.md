@@ -102,4 +102,6 @@ The server is a Node.js application that provides an API for the client to inter
 
 ![Signin form](./screenshots/Signin-form.png)
 
-![Protected Route](/screenshots/protected-route.png)
+### Password reset form
+
+![Password reset form](./screenshots/Password-reset-form.png)
