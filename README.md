@@ -80,11 +80,11 @@ The server is a Node.js application that provides an API for the client to inter
 
 ### Signup form
 
-![Signup](/screenshots/signup-form.png)
+![Signup](./screenshots/signup-form.png)
 
-### Register
+### Email verification form
 
-![Register](/screenshots/register.png)
+![Email verification form](./screenshots/Email-verification-form.png)
 
 ### Protected Route
 
