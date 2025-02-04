@@ -109,3 +109,7 @@ The server is a Node.js application that provides an API for the client to inter
 ### Password reset popup notification
 
 ![Password reset popup notification](./screenshots/password-reset-pop-notification.png)
+
+### Password reset email message
+
+![Password reset email message](./screenshots/password-reset-email-message.png)
