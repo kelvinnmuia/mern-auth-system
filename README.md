@@ -117,3 +117,7 @@ The server is a Node.js application that provides an API for the client to inter
 ### Filled password reset form
 
 ![Filled password reset form](./screenshots/Filled-password-reset-form.png)
+
+### New password form
+
+![New password form](./screenshots/newpassword-form.png)
