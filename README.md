@@ -113,3 +113,7 @@ The server is a Node.js application that provides an API for the client to inter
 ### Password reset email message
 
 ![Password reset email message](./screenshots/password-reset-email-message.png)
+
+### Filled password reset form
+
+![Filled password reset form](./screenshots/Filled-password-reset-form.png)
