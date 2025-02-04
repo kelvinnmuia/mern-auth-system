@@ -78,9 +78,9 @@ The server is a Node.js application that provides an API for the client to inter
 
 ![Homepage](./screenshots/Homepage.png)
 
-### Login
+### Signup form
 
-![Login](/screenshots/login.png)
+![Signup](/screenshots/signup-form.png)
 
 ### Register
 
